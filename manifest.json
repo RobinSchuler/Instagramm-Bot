@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Name of your chrome extension",
-  "description": "Description of your chrome extension.",
+  "name": "Bolzfieber",
+  "description": "Follow and Unfollow on Instagramm.",
   "version": "1.0",
 
   "browser_action": {
@@ -10,10 +10,7 @@
     "default_popup": "src/popup.html"
   },
 
-  "permissions": [
-    "activeTab",
-    "tabs"
-  ],
+  "permissions": ["activeTab", "tabs"],
 
   "content_scripts": [
     {
