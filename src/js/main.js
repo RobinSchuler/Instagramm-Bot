@@ -15,26 +15,31 @@ class Follow extends React.Component {
     //     }, 500);
     //   }
     // };
-    const clickElement = elements => {
+    const clickElement = (elements, name, nameCount) => {
+      if (name[nameCount].innerHTML == "leeabor") {
+        console.log("reached last name");
+        return;
+      }
       console.log("remaining elem length=", elements.length);
       if (elements.length == 0) {
         console.log("scrolling");
         window.scrollBy(0, 150);
         setTimeout(function() {
-          clickElement(elements);
+          clickElement(elements, name, nameCount);
         }, 10000);
       } else {
         elements[0].click();
         var timeout = Math.random() * 60000 + 10000;
         console.log("next in", timeout / 1000 / 60, "min");
         setTimeout(function() {
-          clickElement(elements);
+          clickElement(elements, name, ++nameCount);
         }, timeout);
       }
       // scrollToBotom(0);
     };
 
     console.log("start");
+    var name = document.getElementsByClassName("_2g7d5 notranslate _o5iw8 ");
     var elements = document.getElementsByClassName(
       "_qv64e       _gexxb _4tgw8     _njrw0   "
     );
@@ -43,7 +48,7 @@ class Follow extends React.Component {
     //     elem.click();return false;
     //     await sleep(2000);
     // }
-    clickElement(elements, 0);
+    clickElement(elements, name, 0);
     return <div> </div>;
   }
 }
