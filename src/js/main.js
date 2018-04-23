@@ -16,14 +16,14 @@ class Follow extends React.Component {
     //   }
     // };
     const clickElement = (elements, name, nameCount) => {
-      if (name[nameCount].innerHTML == "stefan.schiffer") {
+      if (name[nameCount].innerHTML == "huenosse2.0") {
         console.log("reached last name");
         return;
       }
       console.log("remaining elem length=", elements.length);
       if (elements.length == 0) {
         console.log("scrolling");
-        window.scrollBy(0, 150);
+        window.scrollBy(0, 300);
         setTimeout(function() {
           clickElement(elements, name, nameCount);
         }, 10000);
@@ -75,15 +75,16 @@ class Unfollow extends React.Component {
       robinschuler1: "null",
       patwoz_insta: "null",
       "1_fc_nuernberg": "null",
-      kreisligaakoblenz: "null",
       fanpagefcbayernmunich: "null",
-      ruhrpott_photography: "null"
+      ruhrpott_photography: "null",
+      anoris_de: "null",
+      bolzr: "null"
     };
     const unabo = (name, button, nameCount, buttonCount) => {
       console.log("remaining names", name.length - 1 - nameCount);
       if (name.length - 1 == nameCount) {
         console.log("scrolling");
-        window.scrollBy(0, 150);
+        window.scrollBy(0, 300);
         setTimeout(function() {
           unabo(name, button, nameCount, buttonCount);
         }, 10000);
