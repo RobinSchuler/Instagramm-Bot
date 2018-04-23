@@ -16,22 +16,29 @@ class Follow extends React.Component {
     //   }
     // };
     const clickElement = (elements, name, nameCount) => {
-      if (name[nameCount].innerHTML == "huenosse2.0") {
-        console.log("reached last name");
-        return;
+      if (name.length > nameCount) {
+        if (name[nameCount].innerHTML == "huenosse2.0") {
+          console.log("reached last name");
+          return;
+        }
+      } else {
+        console.log("error that should never appear");
+        --nameCount;
+        //does that fix it? XD
       }
+
       console.log("remaining elem length=", elements.length);
       if (elements.length == 0) {
         console.log("scrolling");
         window.scrollBy(0, 300);
-        setTimeout(function() {
+        setTimeout(function () {
           clickElement(elements, name, nameCount);
         }, 10000);
       } else {
         elements[0].click();
         var timeout = Math.random() * 60000 + 10000;
         console.log("next in", timeout / 1000 / 60, "min");
-        setTimeout(function() {
+        setTimeout(function () {
           clickElement(elements, name, ++nameCount);
         }, timeout);
       }
@@ -49,7 +56,7 @@ class Follow extends React.Component {
     //     await sleep(2000);
     // }
     clickElement(elements, name, 0);
-    return <div> </div>;
+    return <div > < /div>;
   }
 }
 
@@ -85,7 +92,7 @@ class Unfollow extends React.Component {
       if (name.length - 1 == nameCount) {
         console.log("scrolling");
         window.scrollBy(0, 300);
-        setTimeout(function() {
+        setTimeout(function () {
           unabo(name, button, nameCount, buttonCount);
         }, 10000);
       } else {
@@ -93,14 +100,14 @@ class Unfollow extends React.Component {
           button[buttonCount].click();
           var timeout = Math.random() * 60000 + 10000;
           console.log("next in", timeout / 1000 / 60, "min");
-          setTimeout(function() {
+          setTimeout(function () {
             unabo(name, button, ++nameCount, buttonCount);
           }, timeout);
         } else {
           //kept a name => dont delete it
           var timeout = Math.random() * 30000 + 10000;
           console.log("next in", timeout / 1000 / 60, "min");
-          setTimeout(function() {
+          setTimeout(function () {
             unabo(name, button, ++nameCount, ++buttonCount);
           }, timeout);
         }
@@ -135,7 +142,7 @@ class Unfollow extends React.Component {
     //     await sleep(2000);
     // }
     unabo(name, button, 0, 0);
-    return <div> </div>;
+    return <div > < /div>;
   }
 }
 // Message Listener function
@@ -163,7 +170,7 @@ function follow() {
   const newDiv = document.createElement("div");
   newDiv.setAttribute("id", "chromeExtensionReactApp");
   document.body.appendChild(newDiv);
-  ReactDOM.render(<Follow />, newDiv);
+  ReactDOM.render( < Follow / > , newDiv);
 }
 
 function unfollow() {
@@ -171,5 +178,5 @@ function unfollow() {
   const newDiv = document.createElement("div");
   newDiv.setAttribute("id", "chromeExtensionReactApp");
   document.body.appendChild(newDiv);
-  ReactDOM.render(<Unfollow />, newDiv);
+  ReactDOM.render( < Unfollow / > , newDiv);
 }
