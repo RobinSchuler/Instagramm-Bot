@@ -56,7 +56,7 @@ class Follow extends React.Component {
     //     await sleep(2000);
     // }
     clickElement(elements, name, 0);
-    return <div> </div>;
+    return <div> Hallo </div>;
   }
 }
 
@@ -85,7 +85,10 @@ class Unfollow extends React.Component {
       fanpagefcbayernmunich: "null",
       ruhrpott_photography: "null",
       anoris_de: "null",
-      bolzr: "null"
+      bolzr: "null",
+      championsleague: "null",
+      kreisligafakten: "null",
+      laura_schree: "null"
     };
     const unabo = (name, button, nameCount, buttonCount) => {
       console.log("remaining names", name.length - 1 - nameCount);
