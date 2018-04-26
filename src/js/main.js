@@ -17,7 +17,7 @@ class Follow extends React.Component {
     // };
     const clickElement = (elements, name, nameCount) => {
       if (name.length > nameCount) {
-        if (name[nameCount].innerHTML == "huenosse2.0") {
+        if (name[nameCount].innerHTML == "janniswe97") {
           console.log("reached last name");
           return;
         }
