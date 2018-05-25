@@ -5,8 +5,6 @@ import Button from './components/Button';
 
 class Follow extends React.Component {
   render() {
-    console.log(this.props);
-
     const number = parseInt(this.props.number);
     const lastP = this.props.lastP;
 
@@ -20,7 +18,7 @@ class Follow extends React.Component {
       if (elements.length >= nameCount) {
         const name = elements[nameCount].getElementsByClassName(
           '_2g7d5 notranslate _o5iw8 '
-        ).innerHTML;
+        )[0].innerHTML;
         const button = elements[nameCount].getElementsByClassName(
           '_qv64e       _gexxb _4tgw8     _njrw0   '
         )[0];
@@ -151,10 +149,8 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
 function follow(number, lastP) {
   var num = number;
   if (num == '' || num === '') {
-    console.log('leer');
     num = '0';
   }
-  console.log('func follow');
   const newDiv = document.createElement('div');
   newDiv.setAttribute('id', 'chromeExtensionReactApp');
   document.body.appendChild(newDiv);
@@ -162,7 +158,6 @@ function follow(number, lastP) {
 }
 
 function unfollow() {
-  console.log('func unfollow');
   const newDiv = document.createElement('div');
   newDiv.setAttribute('id', 'chromeExtensionReactApp');
   document.body.appendChild(newDiv);
