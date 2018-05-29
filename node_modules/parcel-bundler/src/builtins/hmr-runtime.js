@@ -1,6 +1,5 @@
 var OVERLAY_ID = '__parcel__error__overlay__';
 
-var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 
 function Module(moduleName) {
@@ -40,6 +39,8 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
           hmrAccept(global.parcelRequire, asset.id);
         }
       });
+      // Clear the console after HMR
+      console.clear();
     }
 
     if (data.type === 'reload') {
