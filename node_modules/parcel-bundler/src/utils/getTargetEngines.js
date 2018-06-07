@@ -1,8 +1,9 @@
 const browserslist = require('browserslist');
 const semver = require('semver');
+const Path = require('path');
 
 const DEFAULT_ENGINES = {
-  browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'],
+  browsers: ['> 0.25%'],
   node: '6'
 };
 
@@ -15,7 +16,9 @@ const DEFAULT_ENGINES = {
  */
 async function getTargetEngines(asset, isTargetApp) {
   let targets = {};
-  let path = isTargetApp ? asset.options.mainFile : asset.name;
+  let path = isTargetApp
+    ? Path.join(asset.options.rootDir, 'index')
+    : asset.name;
   let compileTarget =
     asset.options.target === 'browser' ? 'browsers' : asset.options.target;
   let pkg = await asset.getConfig(['package.json'], {path});
