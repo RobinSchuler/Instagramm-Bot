@@ -3,6 +3,25 @@ import ReactDOM from 'react-dom';
 
 import Button from './components/Button';
 
+const namesToKeep = {
+  patrickb_94: 'null',
+  pirminb_97: 'null',
+  'kreisligafussball.de': 'null',
+  fussball_de: 'null',
+  kicker: 'null',
+  transfermarkt_official: 'null',
+  robinschuler1: 'null',
+  patwoz_insta: 'null',
+  '1_fc_nuernberg': 'null',
+  fanpagefcbayernmunich: 'null',
+  ruhrpott_photography: 'null',
+  anoris_de: 'null',
+  bolzr: 'null',
+  championsleague: 'null',
+  kreisligafakten: 'null',
+  laura_schree: 'null',
+};
+
 class Follow extends React.Component {
   render() {
     const number = parseInt(this.props.number);
@@ -17,10 +36,10 @@ class Follow extends React.Component {
       );
       if (elements.length >= nameCount) {
         const name = elements[nameCount].getElementsByClassName(
-          '_2g7d5 notranslate _o5iw8 '
+          'FPmhX notranslate zsYNt '
         )[0].innerHTML;
         const button = elements[nameCount].getElementsByClassName(
-          '_qv64e       _gexxb _4tgw8     _njrw0   '
+          '_5f5mN       jIbKX KUBKM      yZn4P   '
         )[0];
         if (name == lastP) {
           console.log('reached last name');
@@ -49,7 +68,7 @@ class Follow extends React.Component {
 
     console.log('start');
 
-    var test = document.getElementsByClassName('_6e4x5');
+    var test = document.getElementsByClassName('ywte8');
 
     clickElement(test, number);
     return <div> Hallo </div>;
@@ -58,33 +77,6 @@ class Follow extends React.Component {
 
 class Unfollow extends React.Component {
   render() {
-    // const scrollToBotom = prevScroll => {
-    //   var scrollH = document.body.scrollHeight;
-    //   if (scrollH > prevScroll) {
-    //     window.scrollTo(0, scrollH);
-    //     setTimeout(function() {
-    //       scrollToBotom(scrollH);
-    //     }, 500);
-    //   }
-    // };
-    const namesToKeep = {
-      patrickb_94: 'null',
-      pirminb_97: 'null',
-      'kreisligafussball.de': 'null',
-      fussball_de: 'null',
-      kicker: 'null',
-      transfermarkt_official: 'null',
-      robinschuler1: 'null',
-      patwoz_insta: 'null',
-      '1_fc_nuernberg': 'null',
-      fanpagefcbayernmunich: 'null',
-      ruhrpott_photography: 'null',
-      anoris_de: 'null',
-      bolzr: 'null',
-      championsleague: 'null',
-      kreisligafakten: 'null',
-      laura_schree: 'null',
-    };
     const unabo = (name, button, nameCount, buttonCount) => {
       console.log('remaining names', name.length - 1 - nameCount);
       if (name.length - 1 == nameCount) {
@@ -112,10 +104,10 @@ class Unfollow extends React.Component {
       }
     };
 
-    console.log('start');
-    var name = document.getElementsByClassName('_2g7d5 notranslate _o5iw8 ');
+    //console.log('start');
+    var name = document.getElementsByClassName('FPmhX notranslate zsYNt ');
     var button = document.getElementsByClassName(
-      '_qv64e    _t78yp    _4tgw8     _njrw0   '
+      '_5f5mN    -fzfL    KUBKM      yZn4P   '
     );
     // for(elem in elements)
     // {
@@ -128,17 +120,17 @@ class Unfollow extends React.Component {
 }
 // Message Listener function
 chrome.runtime.onMessage.addListener((request, sender, response) => {
-  console.log('runtimeMessage', request);
+  //console.log('runtimeMessage', request);
   // If message is injectApp
   if (request.follow) {
-    console.log('follow');
+    //console.log('follow');
     // Inject our app to DOM and send response
     follow(request.number, request.lastP);
     response({
       startedExtension: true,
     });
   } else if (request.unfollow) {
-    console.log('unfollow');
+    //console.log('unfollow');
     unfollow();
     response({
       startedExtension: true,
