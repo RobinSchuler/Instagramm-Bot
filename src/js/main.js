@@ -81,9 +81,6 @@ class Unfollow extends React.Component {
       console.log(
         'remaining names',
         name.length - 1 - nameCount,
-        buttonCount,
-        button,
-        nameCount,
         name[nameCount].innerHTML
       );
       if (name.length - 1 == nameCount) {
