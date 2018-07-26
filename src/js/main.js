@@ -78,7 +78,14 @@ class Follow extends React.Component {
 class Unfollow extends React.Component {
   render() {
     const unabo = (name, button, nameCount, buttonCount) => {
-      console.log('remaining names', name.length - 1 - nameCount);
+      console.log(
+        'remaining names',
+        name.length - 1 - nameCount,
+        buttonCount,
+        button,
+        nameCount,
+        name[nameCount].innerHTML
+      );
       if (name.length - 1 == nameCount) {
         console.log('scrolling');
         window.scrollBy(0, 300);
@@ -87,16 +94,25 @@ class Unfollow extends React.Component {
         }, 10000);
       } else {
         if (!namesToKeep.hasOwnProperty(name[nameCount].innerHTML)) {
-          button[buttonCount].click();
+          button[buttonCount + 1].click();
+          var confirmationPopupButton;
+          setTimeout(function() {
+            confirmationPopupButton = document.getElementsByClassName(
+              'aOOlW -Cab_   '
+            );
+            confirmationPopupButton[0].click();
+          }, 2000);
+
+          //weird non existing button at 0
           var timeout = Math.random() * 60000 + 10000;
-          console.log('next in', timeout / 1000 / 60, 'min');
+          console.log('unfollow, next in', timeout / 1000 / 60, 'min');
           setTimeout(function() {
             unabo(name, button, ++nameCount, buttonCount);
           }, timeout);
         } else {
           //kept a name => dont delete it
           var timeout = Math.random() * 30000 + 10000;
-          console.log('next in', timeout / 1000 / 60, 'min');
+          console.log('skip, next in', timeout / 1000 / 60, 'min');
           setTimeout(function() {
             unabo(name, button, ++nameCount, ++buttonCount);
           }, timeout);
@@ -107,7 +123,7 @@ class Unfollow extends React.Component {
     //console.log('start');
     var name = document.getElementsByClassName('FPmhX notranslate zsYNt ');
     var button = document.getElementsByClassName(
-      '_5f5mN    -fzfL    KUBKM      yZn4P   '
+      'oF4XW sqdOP  L3NKy   _8A5w5   '
     );
     // for(elem in elements)
     // {
