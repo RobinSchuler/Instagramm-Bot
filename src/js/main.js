@@ -39,13 +39,17 @@ class Follow extends React.Component {
           'FPmhX notranslate zsYNt '
         )[0].innerHTML;
         const button = elements[nameCount].getElementsByClassName(
-          '_5f5mN       jIbKX KUBKM      yZn4P   '
+          'oF4XW sqdOP L3NKy'
         )[0];
         if (name == lastP) {
           console.log('reached last name');
           return;
         } else {
-          if (button == undefined || button === undefined) {
+          if (
+            button == undefined ||
+            button === undefined ||
+            button.innerHTML !== 'Folgen'
+          ) {
             //skip if no follow button
             clickElement(elements, ++nameCount);
           } else {
