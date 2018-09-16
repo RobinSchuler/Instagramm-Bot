@@ -36,7 +36,7 @@ class Follow extends React.Component {
       );
       if (elements.length >= nameCount) {
         const name = elements[nameCount].getElementsByClassName(
-          'FPmhX notranslate zsYNt '
+          'FPmhX notranslate _0imsa '
         )[0].innerHTML;
         const button = elements[nameCount].getElementsByClassName(
           'oF4XW sqdOP L3NKy'
@@ -72,10 +72,10 @@ class Follow extends React.Component {
 
     console.log('start');
 
-    var test = document.getElementsByClassName('ywte8');
+    var test = document.getElementsByClassName('wo9IH');
 
     clickElement(test, number);
-    return <div> Hallo </div>;
+    return <div></div>;
   }
 }
 
