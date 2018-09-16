@@ -122,7 +122,7 @@ class Unfollow extends React.Component {
     };
 
     //console.log('start');
-    var name = document.getElementsByClassName('FPmhX notranslate zsYNt ');
+    var name = document.getElementsByClassName('FPmhX notranslate _0imsa ');
     var button = document.getElementsByClassName(
       'oF4XW sqdOP  L3NKy   _8A5w5   '
     );
