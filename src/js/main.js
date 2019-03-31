@@ -1,25 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import Button from './components/Button';
+import Button from "./components/Button";
 
 const namesToKeep = {
-  patrickb_94: 'null',
-  pirminb_97: 'null',
-  'kreisligafussball.de': 'null',
-  fussball_de: 'null',
-  kicker: 'null',
-  transfermarkt_official: 'null',
-  robinschuler1: 'null',
-  patwoz_insta: 'null',
-  '1_fc_nuernberg': 'null',
-  fanpagefcbayernmunich: 'null',
-  ruhrpott_photography: 'null',
-  anoris_de: 'null',
-  bolzr: 'null',
-  championsleague: 'null',
-  kreisligafakten: 'null',
-  laura_schree: 'null',
+  patrickb_94: "null",
+  pirminb_97: "null",
+  "kreisligafussball.de": "null",
+  fussball_de: "null",
+  kicker: "null",
+  transfermarkt_official: "null",
+  robinschuler1: "null",
+  patwoz_insta: "null",
+  "1_fc_nuernberg": "null",
+  fanpagefcbayernmunich: "null",
+  ruhrpott_photography: "null",
+  anoris_de: "null",
+  bolzr: "null",
+  championsleague: "null",
+  kreisligafakten: "null",
+  laura_schree: "null"
 };
 
 class Follow extends React.Component {
@@ -29,40 +29,40 @@ class Follow extends React.Component {
 
     const clickElement = (elements, nameCount) => {
       console.log(
-        'current elements = ',
+        "current elements = ",
         elements.length,
-        ' next number to follow =  ',
+        " next number to follow =  ",
         nameCount
       );
       if (elements.length >= nameCount) {
         const name = elements[nameCount].getElementsByClassName(
-          'FPmhX notranslate _0imsa '
+          "FPmhX notranslate _0imsa "
         )[0].innerHTML;
         const button = elements[nameCount].getElementsByClassName(
-          'oF4XW sqdOP L3NKy'
+          "_0mzm- sqdOP  L3NKy       "
         )[0];
         if (name == lastP) {
-          console.log('reached last name');
+          console.log("reached last name");
           return;
         } else {
           if (
             button == undefined ||
             button === undefined ||
-            button.innerHTML !== 'Folgen'
+            button.innerHTML !== "Folgen"
           ) {
             //skip if no follow button
             clickElement(elements, ++nameCount);
           } else {
             button.click();
             var timeout = Math.random() * 60000 + 10000;
-            console.log('next in', timeout / 1000 / 60, 'min');
+            console.log("next in", timeout / 1000 / 60, "min");
             setTimeout(function() {
               clickElement(elements, ++nameCount);
             }, timeout);
           }
         }
       } else {
-        console.log('scrolling');
+        console.log("scrolling");
         window.scrollBy(0, 300);
         setTimeout(function() {
           clickElement(elements, nameCount);
@@ -70,12 +70,11 @@ class Follow extends React.Component {
       }
     };
 
-    console.log('start');
-
-    var test = document.getElementsByClassName('wo9IH');
-
+    var test = document.getElementsByClassName(
+      "                  Igw0E   rBNOH        eGOV_     ybXk5    _4EzTm                                                                                   XfCBB          HVWg4                  _0mzm- ZUqME"
+    );
     clickElement(test, number);
-    return <div></div>;
+    return <div />;
   }
 }
 
@@ -83,12 +82,12 @@ class Unfollow extends React.Component {
   render() {
     const unabo = (name, button, nameCount, buttonCount) => {
       console.log(
-        'remaining names',
+        "remaining names",
         name.length - 1 - nameCount,
         name[nameCount].innerHTML
       );
       if (name.length - 1 == nameCount) {
-        console.log('scrolling');
+        console.log("scrolling");
         window.scrollBy(0, 300);
         setTimeout(function() {
           unabo(name, button, nameCount, buttonCount);
@@ -99,21 +98,21 @@ class Unfollow extends React.Component {
           var confirmationPopupButton;
           setTimeout(function() {
             confirmationPopupButton = document.getElementsByClassName(
-              'aOOlW -Cab_   '
+              "aOOlW -Cab_   "
             );
             confirmationPopupButton[0].click();
           }, 2000);
 
           //weird non existing button at 0
           var timeout = Math.random() * 60000 + 10000;
-          console.log('unfollow, next in', timeout / 1000 / 60, 'min');
+          console.log("unfollow, next in", timeout / 1000 / 60, "min");
           setTimeout(function() {
             unabo(name, button, ++nameCount, buttonCount);
           }, timeout);
         } else {
           //kept a name => dont delete it
           var timeout = Math.random() * 30000 + 10000;
-          console.log('skip, next in', timeout / 1000 / 60, 'min');
+          console.log("skip, next in", timeout / 1000 / 60, "min");
           setTimeout(function() {
             unabo(name, button, ++nameCount, ++buttonCount);
           }, timeout);
@@ -122,9 +121,9 @@ class Unfollow extends React.Component {
     };
 
     //console.log('start');
-    var name = document.getElementsByClassName('FPmhX notranslate _0imsa ');
+    var name = document.getElementsByClassName("FPmhX notranslate _0imsa ");
     var button = document.getElementsByClassName(
-      'oF4XW sqdOP  L3NKy   _8A5w5   '
+      "_0mzm- sqdOP  L3NKy   _8A5w5    "
     );
     // for(elem in elements)
     // {
@@ -144,31 +143,31 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
     // Inject our app to DOM and send response
     follow(request.number, request.lastP);
     response({
-      startedExtension: true,
+      startedExtension: true
     });
   } else if (request.unfollow) {
     //console.log('unfollow');
     unfollow();
     response({
-      startedExtension: true,
+      startedExtension: true
     });
   }
 });
 
 function follow(number, lastP) {
   var num = number;
-  if (num == '' || num === '') {
-    num = '0';
+  if (num == "" || num === "") {
+    num = "0";
   }
-  const newDiv = document.createElement('div');
-  newDiv.setAttribute('id', 'chromeExtensionReactApp');
+  const newDiv = document.createElement("div");
+  newDiv.setAttribute("id", "chromeExtensionReactApp");
   document.body.appendChild(newDiv);
   ReactDOM.render(<Follow number={num} lastP={lastP} />, newDiv);
 }
 
 function unfollow() {
-  const newDiv = document.createElement('div');
-  newDiv.setAttribute('id', 'chromeExtensionReactApp');
+  const newDiv = document.createElement("div");
+  newDiv.setAttribute("id", "chromeExtensionReactApp");
   document.body.appendChild(newDiv);
   ReactDOM.render(<Unfollow />, newDiv);
 }
