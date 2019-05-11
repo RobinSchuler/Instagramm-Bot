@@ -26,6 +26,7 @@ class Follow extends React.Component {
   render() {
     const number = parseInt(this.props.number);
     const lastP = this.props.lastP;
+    const scrollContainer = document.getElementsByClassName("isgrP")[0];
 
     const clickElement = (elements, nameCount) => {
       console.log(
@@ -34,7 +35,7 @@ class Follow extends React.Component {
         " next number to follow =  ",
         nameCount
       );
-      if (elements.length >= nameCount) {
+      if (elements.length > nameCount) {
         const name = elements[nameCount].getElementsByClassName(
           "FPmhX notranslate _0imsa "
         )[0].innerHTML;
@@ -63,7 +64,7 @@ class Follow extends React.Component {
         }
       } else {
         console.log("scrolling");
-        window.scrollBy(0, 300);
+        scrollContainer.scrollBy(0, 300);
         setTimeout(function() {
           clickElement(elements, nameCount);
         }, 10000);
