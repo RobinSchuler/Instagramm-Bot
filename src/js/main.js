@@ -70,9 +70,7 @@ class Follow extends React.Component {
       }
     };
 
-    var test = document.getElementsByClassName(
-      "                  Igw0E   rBNOH        eGOV_     ybXk5    _4EzTm                                                                                   XfCBB          HVWg4                  _0mzm- ZUqME"
-    );
+    var test = document.getElementsByClassName("wo9IH");
     clickElement(test, number);
     return <div />;
   }
