@@ -79,6 +79,8 @@ class Follow extends React.Component {
 
 class Unfollow extends React.Component {
   render() {
+    const scrollContainer = document.getElementsByClassName("isgrP")[0];
+
     const unabo = (name, button, nameCount, buttonCount) => {
       console.log(
         "remaining names",
@@ -87,7 +89,7 @@ class Unfollow extends React.Component {
       );
       if (name.length - 1 == nameCount) {
         console.log("scrolling");
-        window.scrollBy(0, 300);
+        scrollContainer.scrollBy(0, 300);
         setTimeout(function() {
           unabo(name, button, nameCount, buttonCount);
         }, 10000);
