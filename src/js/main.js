@@ -1,22 +1,41 @@
-
-console.log("main js")
+console.log("main js", new Date(), new Date().getMilliseconds());
 //document.addEventListener("load", hidePinterestChat);
 window.onload = hidePinterestChat;
 
 function hidePinterestChat() {
+  let int = null;
   const button = document.getElementById("buy-now-button");
-  console.log("add to cart 500ms", button);
-  if(button)
-  {
-    setTimeout(function(){ button.click(); }, 500);
-  }
-  else
-  {
-    console.log("force cart")
-  document
-    .querySelector('#addToCart')
-    .insertAdjacentHTML(
-      'afterbegin',
+  console.log(
+    "opening insta buy",
+    button,
+    new Date(),
+    new Date().getMilliseconds()
+  );
+  if (button) {
+    int = setInterval(() => {
+      const frame = document.getElementById("turbo-checkout-iframe");
+      console.log(
+        "button ready ? " + frame &&
+          frame.contentWindow.document.getElementById(
+            "turbo-checkout-pyo-button"
+          )
+      );
+      if (
+        frame &&
+        frame.contentWindow.document.getElementById("turbo-checkout-pyo-button")
+      ) {
+        console.log(
+          "button found at",
+          new Date(),
+          new Date().getMilliseconds()
+        );
+        clearInterval(int);
+      }
+    }, 100);
+  } else {
+    console.log("force cart");
+    document.querySelector("#addToCart").insertAdjacentHTML(
+      "afterbegin",
       `
         <div id="buyNow_feature_div" class="celwidget" data-feature-name="buyNow">
           <div class="a-button-stack">
@@ -32,7 +51,7 @@ function hidePinterestChat() {
         </div>
       `
     );
-   const addToCartBtn = document.querySelector("#buy-now-button");
-   addToCartBtn.click();
+    const addToCartBtn = document.querySelector("#buy-now-button");
+    addToCartBtn.click();
   }
 }
